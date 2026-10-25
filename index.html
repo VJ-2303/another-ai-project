@@ -5,22 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="A simple Hello World website."
+      content="Play Stone, Paper, Scissors against an AI opponent."
     />
-    <title>Hello World</title>
+    <title>Stone · Paper · Scissors</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <main class="hero">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <section class="card" aria-labelledby="welcome-heading">
-        <p class="eyebrow">A tiny beginning</p>
-        <h1 id="welcome-heading">Hello, world<span aria-hidden="true">!</span></h1>
-        <p class="message">
-          Welcome to your new corner of the web. Simple, bright, and ready for
-          whatever comes next.
-        </p>
-        <a class="button" href="#welcome-heading">Start exploring</a>
+    <main class="game-shell">
+      <div class="background-glow background-glow--one" aria-hidden="true"></div>
+      <div class="background-glow background-glow--two" aria-hidden="true"></div>
+
+      <section class="game-card" aria-labelledby="game-title">
+        <header class="game-header">
+          <p class="eyebrow">The classic showdown</p>
+          <h1 id="game-title">Stone <span>·</span> Paper <span>·</span> Scissors</h1>
+          <p class="subtitle">Choose your move and see if you can outsmart the AI.</p>
+        </header>
+
+        <section class="scoreboard" aria-label="Game score">
+          <div class="score">
+            <span class="score__label">You</span>
+            <strong id="player-score">0</strong>
+          </div>
+          <div class="score-divider" aria-hidden="true">:</div>
+          <div class="score">
+            <span class="score__label">AI</span>
+            <strong id="ai-score">0</strong>
+          </div>
+        </section>
+
+        <section class="arena" aria-live="polite">
+          <div class="choice-display">
+            <span class="choice-display__label">Your move</span>
+            <div class="choice-display__icon" id="player-choice" aria-label="No move selected">?</div>
+          </div>
+          <div class="versus" aria-hidden="true">VS</div>
+          <div class="choice-display">
+            <span class="choice-display__label">AI move</span>
+            <div class="choice-display__icon" id="ai-choice" aria-label="Waiting for your move">?</div>
+          </div>
+        </section>
+
+        <p class="result" id="result">Make your move!</p>
+        <p class="result-detail" id="result-detail">The first to reach 5 points wins.</p>
+
+        <section class="moves" aria-label="Choose your move">
+          <button class="move-button" type="button" data-move="stone">
+            <span class="move-button__icon" aria-hidden="true">✊</span>
+            <span>Stone</span>
+          </button>
+          <button class="move-button" type="button" data-move="paper">
+            <span class="move-button__icon" aria-hidden="true">✋</span>
+            <span>Paper</span>
+          </button>
+          <button class="move-button" type="button" data-move="scissors">
+            <span class="move-button__icon" aria-hidden="true">✌️</span>
+            <span>Scissors</span>
+          </button>
+        </section>
+
+        <button class="reset-button" id="reset-button" type="button">Reset game</button>
       </section>
     </main>
   </body>
